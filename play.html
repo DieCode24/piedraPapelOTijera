@@ -1,0 +1,135 @@
+<!-- --------------------------------------------------
+● Fecha y Hora de publicación: [21/06/2024]
+● Versión de su código: [0.1]
+● Autores: Diego Alejandro Giraldo Ascencio, Rodrigo García
+● Nombre del lenguaje utilizado: [JavaScript]
+● Versión del lenguaje utilizado: [ECMAScript 6]
+● Universidad Tecnológica de Pereira
+● Programa de Ingeniería de Sistemas y Computación
+● Cuarta (IV) cohorte Coding BootCamp Fullstack
+-------------------------------------------------- !-->
+
+<!-- --------------------------------------------------
+● Descripción del programa:
+Este programa es un Juego Interactivo "Piedra, Papel o Tijera" con el uso de las tecnologias HTML, CSS y JS (Vanilla)
+
+● Salvedades:
+1. Se asegura el funcionamiento del programa ejecutandolo con un servidor local pero en algun navegador.
+-------------------------------------------------- !-->
+
+<!DOCTYPE html>
+<!-- Declaración del tipo de documento como HTML5 -->
+<html lang="es">
+<!-- Apertura de la etiqueta HTML con el idioma configurado como español -->
+
+<head>
+    <!-- Inicio del encabezado del documento -->
+    <meta charset="UTF-8">
+    <!-- Metadato que define la codificación de caracteres como UTF-8, para soportar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Metadato que configura la ventana gráfica para adaptarse al ancho del dispositivo y establece un nivel de zoom inicial -->
+    <title>Piedra, Papel o Tijera</title>
+    <!-- Título de la página que se muestra en la pestaña del navegador -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Enlace a una hoja de estilo externa llamada style.css, que contiene estilos CSS para la página -->
+</head>
+
+<body>
+    <!-- Inicio del cuerpo del documento, que contiene el contenido visible -->
+    <header>
+        <!-- Definición del encabezado de la página -->
+        <h1>Piedra, Papel o Tijera</h1>
+        <!-- Título principal de la página -->
+    </header>
+    <main>
+        <!-- Inicio del contenido principal de la página -->
+        <section class="configuracion">
+            <!-- Sección de configuración del juego -->
+            <label for="numIntentos">Número de Intentos</label>
+            <!-- Etiqueta para el input de número de intentos -->
+            <input type="number" id="numIntentos" min="1" max="10" value="3">
+            <!-- Campo de entrada para definir el número de intentos del juego, con un valor predeterminado de 3 y un rango de 1 a 10 -->
+            <button id="iniciarJuego">Iniciar Juego</button>
+            <!-- Botón para iniciar el juego -->
+        </section>
+        <section class="modo-juego">
+            <!-- Sección para elegir el modo de juego -->
+            <button id="modoMaquina">Jugar contra la Máquina</button>
+            <!-- Botón para seleccionar el modo de juego contra la máquina -->
+            <button id="modoJugador">Jugar contra Otro Jugador</button>
+            <!-- Botón para seleccionar el modo de juego contra otro jugador -->
+        </section>
+        <section id="areaJuego" class="area-juego">
+            <!-- Sección principal del área de juego -->
+            <div id="jugador1" class="jugador">
+                <!-- Div para el Jugador 1 -->
+                <h2>Jugador 1</h2>
+                <!-- Título para el Jugador 1 -->
+                <div class="opciones">
+                    <!-- Contenedor para las opciones de Jugador 1 -->
+                    <button class="opcion" data-opcion="piedra">
+                        <!-- Botón para seleccionar "Piedra" con un ícono correspondiente -->
+                        ✊
+                    </button>
+                    <button class="opcion" data-opcion="papel">
+                        <!-- Botón para seleccionar "Papel" con un ícono correspondiente -->
+                        🤚
+                    </button>
+                    <button class="opcion" data-opcion="tijera">
+                        <!-- Botón para seleccionar "Tijera" con un ícono correspondiente -->
+                        ✌️
+                    </button>
+                </div>
+            </div>
+            <div id="jugador2" class="jugador">
+                <!-- Div para el Jugador 2 o la Máquina -->
+                <h2 id="tituloJugador2">Máquina</h2>
+                <!-- Título para el Jugador 2, que por defecto es la Máquina -->
+                <div class="opciones">
+                    <!-- Contenedor para las opciones de Jugador 2 -->
+                    <button class="opcion" data-opcion="piedra">
+                        <!-- Botón para seleccionar "Piedra" con un ícono correspondiente -->
+                        ✊
+                    </button>
+                    <button class="opcion" data-opcion="papel">
+                        <!-- Botón para seleccionar "Papel" con un ícono correspondiente -->
+                        🤚
+                    </button>
+                    <button class="opcion" data-opcion="tijera">
+                        <!-- Botón para seleccionar "Tijera" con un ícono correspondiente -->
+                        ✌️
+                    </button>
+                </div>
+            </div>
+            <div id="resultado" class="resultado">
+                <!-- Div para mostrar el resultado del juego -->
+                <p id="textoResultado"></p>
+                <!-- Párrafo que contendrá el texto del resultado del juego -->
+            </div>
+            <button id="reiniciarJuego">Reiniciar Juego</button>
+            <!-- Botón para reiniciar el juego -->
+        </section>
+        <section class="puntajes">
+            <hr>
+            <!-- Línea horizontal que separa visualmente la sección de puntajes del resto del contenido -->
+            <h2>Marcador actual</h2>
+            <!-- Título para la sección de puntajes -->
+            <div>
+                <h3>Jugador 1:</h3>
+                <!-- Título para el puntaje del Jugador 1 -->
+                <p id="puntajeJugador1">0</p>
+                <!-- Párrafo que muestra el puntaje actual del Jugador 1, comenzando en 0 -->
+            </div>
+            <div>
+                <h3 id="tituloPuntajeJugador2">Máquina:</h3>
+                <!-- Título para el puntaje del Jugador 2, que por defecto es la Máquina -->
+                <p id="puntajeJugador2">0</p>
+                <!-- Párrafo que muestra el puntaje actual del Jugador 2, comenzando en 0 -->
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <!-- Enlace al archivo de JavaScript externo llamado script.js, que contiene la lógica del juego -->
+</body>
+
+</html>

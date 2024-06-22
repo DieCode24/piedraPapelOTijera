@@ -1,0 +1,236 @@
+/* --------------------------------------------------
+● Fecha y Hora de publicación: [21/06/2024]
+● Versión de su código: [0.1]
+● Autores: Diego Alejandro Giraldo Ascencio, Rodrigo García
+● Nombre del lenguaje utilizado: [JavaScript]
+● Versión del lenguaje utilizado: [ECMAScript 6]
+● Universidad Tecnológica de Pereira
+● Programa de Ingeniería de Sistemas y Computación
+● Cuarta (IV) cohorte Coding BootCamp FullStack
+-------------------------------------------------- */
+
+/* --------------------------------------------------
+● Descripción del programa:
+Este programa es un Juego Interactivo "Piedra, Papel o Tijera" con el uso de las tecnologias HTML, CSS y JS (Vanilla)
+
+● Salvedades:
+1. Se asegura el funcionamiento del programa ejecutandolo con un servidor local pero en algun navegador.
+-------------------------------------------------- */
+
+/* Estilo global para el cuerpo del documento */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente predeterminada */
+    display: flex; /* Usa flexbox para el layout */
+    flex-direction: column; /* Disposición en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0; /* Elimina el relleno predeterminado */
+}
+
+/* Estilo para el encabezado */
+header {
+    text-align: center; /* Centra el texto */
+    margin-top: 20px; /* Margen superior */
+}
+
+/* Estilo para el título principal */
+h1 {
+    font-size: 3em; /* Tamaño grande de fuente */
+    color: #333; /* Color de texto gris oscuro */
+    width: 100%; /* Anchura completa */
+    margin-bottom: 1px; /* Margen inferior pequeño */
+}
+
+
+/* Estilo para la sección principal */
+main {
+    width: 80%; /* Anchura del 80% del contenedor */
+    max-width: 600px; /* Anchura máxima */
+    margin-top: 20px; /* Margen superior */
+    display: flex; /* Usa flexbox para el layout */
+    flex-direction: column; /* Disposición en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+/* Estilo para la sección de selección de modo de juego */
+.modo-juego {
+    display: flex; /* Usa flexbox para el layout */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 5px; /* Espacio entre botones */
+    margin-top: 30px; /* Margen superior */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilo para los botones de modo de juego */
+.modo-juego button {
+    padding: 13px 10px; /* Relleno interno */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    border: none; /* Sin borde */
+    border-radius: 50px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Estilo específico para el botón de modo máquina */
+#modoMaquina {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color de texto blanco */
+}
+
+/* Estilo específico para el botón de modo jugador */
+#modoJugador {
+    background-color: #2196F3; /* Color de fondo azul */
+    color: white; /* Color de texto blanco */
+}
+
+/* Efecto hover para los botones de modo de juego */
+.modo-juego button:hover {
+    transform: translateY(-3px); /* Desplazamiento hacia arriba */
+}
+
+/* Efecto active para los botones de modo de juego */
+.modo-juego button:active {
+    transform: translateY(1px); /* Desplazamiento hacia abajo */
+}
+
+/* Estilo para la sección de opciones */
+.opciones {
+    display: flex; /* Usa flexbox para el layout */
+    justify-content: space-around; /* Distribución equitativa */
+}
+
+/* Estilo para cada opción */
+.opcion {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de mano */
+    font-size: 1.8em; /* Tamaño de fuente grande */
+    transition: transform 0.3s ease; /* Transición suave al escalar */
+}
+
+/* Efecto hover para las opciones */
+.opcion:hover {
+    transform: scale(2.4); /* Escala la opción al pasar el cursor */
+}
+
+/* Efecto active para las opciones */
+.opcion:active {
+    transform: translateY(2px); /* Desplazamiento hacia abajo */
+}
+
+/* Estilo para la sección de resultado */
+.resultado {
+    margin-top: 30px; /* Margen superior */
+    padding: 20px; /* Relleno interno */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto */
+    font-size: 1.2em; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Estilo específico para el texto de resultado */
+#textoResultado {
+    margin: 0; /* Sin margen */
+}
+
+/* Estilo para el botón de reinicio */
+#reiniciarJuego {
+    margin-top: 10px; /* Margen superior */
+    padding: 10px 20px; /* Relleno interno */
+    background-color: #007BFF; /* Color de fondo azul */
+    color: white; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+}
+
+/* Efecto hover para el botón de reinicio */
+#reiniciarJuego:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro */
+}
+
+/* Estilo para los contenedores de puntajes */
+.puntajes div {
+    margin: 10px; /* Margen vertical */
+}
+
+/* Estilo para la sección de configuración */
+.configuracion {
+    display: flex; /* Usa flexbox para el layout */
+    flex-direction: column; /* Disposición en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    gap: 15px; /* Espacio entre elementos */
+    margin-top: 30px; /* Margen superior */
+    padding: 20px; /* Relleno interno */
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilo para las etiquetas de configuración */
+.configuracion label {
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    color: #333; /* Color de texto gris oscuro */
+}
+
+/* Estilo para el input de número en configuración */
+.configuracion input[type="number"] {
+    width: 60px; /* Ancho del input */
+    padding: 8px; /* Relleno interno */
+    font-size: 16px; /* Tamaño de fuente */
+    border: 2px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Texto centrado */
+}
+
+/* Efecto focus para el input de número */
+.configuracion input[type="number"]:focus {
+    outline: none; /* Sin contorno */
+    border-color: #2196F3; /* Color de borde azul */
+}
+
+/* Estilo para el botón de inicio del juego */
+#iniciarJuego {
+    padding: 12px 25px; /* Relleno interno */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    color: white; /* Color de texto blanco */
+    background-color: #FF5722; /* Color de fondo naranja */
+    border: none; /* Sin borde */
+    border-radius: 50px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover para el botón de inicio del juego */
+#iniciarJuego:hover {
+    background-color: #E64A19; /* Color de fondo más oscuro */
+    transform: translateY(-2px); /* Desplazamiento hacia arriba */
+}
+
+/* Efecto active para el botón de inicio del juego */
+#iniciarJuego:active {
+    transform: translateY(1px); /* Desplazamiento hacia abajo */
+}
+
+
+/* Estilo general para las secciones de configuración, modo de juego, área de juego y puntajes */
+.configuracion,
+.modo-juego,
+.area-juego,
+.puntajes {
+    width: 100%; /* Ancho completo */
+    margin-bottom: 20px; /* Margen inferior */
+    text-align: center; /* Texto centrado */
+}
+
+/* Estilo específico para ocultar la sección del área de juego inicialmente */
+.area-juego {
+    display: none; /* Oculto */
+}

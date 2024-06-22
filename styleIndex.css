@@ -1,0 +1,69 @@
+/* --------------------------------------------------
+● Fecha y Hora de publicación: [21/06/2024]
+● Versión de su código: [0.1]
+● Autores: Diego Alejandro Giraldo Ascencio, Rodrigo García
+● Nombre del lenguaje utilizado: [JavaScript]
+● Versión del lenguaje utilizado: [ECMAScript 6]
+● Universidad Tecnológica de Pereira
+● Programa de Ingeniería de Sistemas y Computación
+● Cuarta (IV) cohorte Coding BootCamp FullStack
+-------------------------------------------------- */
+
+/* --------------------------------------------------
+● Descripción del programa:
+Este programa es un Juego Interactivo "Piedra, Papel o Tijera" con el uso de las tecnologias HTML, CSS y JS (Vanilla)
+
+● Salvedades:
+1. Se asegura el funcionamiento del programa ejecutandolo con un servidor local pero en algun navegador.
+-------------------------------------------------- */
+
+/* Estilos globales para el cuerpo del documento */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente predeterminada */
+    display: flex; /* Usa flexbox para el layout */
+    flex-direction: column; /* Disposición en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0; /* Elimina el relleno predeterminado */
+}
+
+/* Estilos para el encabezado */
+header {
+    display: flex; /* Usa flexbox para el layout */
+    flex-direction: column; /* Disposición en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto */
+    padding: 20px 20px; /* Relleno interno */
+    min-height: 100vh; /* Altura mínima de la ventana */
+}
+
+/* Estilos para el título principal */
+header h1 {
+    margin-bottom: 35px; /* Margen inferior */
+    font-size: 2.5em; /* Tamaño grande de fuente */
+    color: #333; /* Color de texto gris oscuro */
+}
+
+/* Estilos para el botón de inicio */
+.start-button {
+    display: inline-block; /* Botón en línea con bloque */
+    padding: 15px 30px; /* Relleno interno */
+    font-size: 1.2em; /* Tamaño de fuente */
+    text-decoration: none; /* Sin subrayado */
+    color: white; /* Color de texto blanco */
+    background-color: #4CAF50; /* Color de fondo verde */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+/* Efecto hover para el botón de inicio */
+.start-button:hover {
+    background-color: #45a049; /* Color de fondo más oscuro al pasar el cursor */
+}
+
+/* Efecto active para el botón de inicio */
+.start-button:active {
+    transform: translateY(3px); /* Desplazamiento hacia abajo al hacer clic */
+}
